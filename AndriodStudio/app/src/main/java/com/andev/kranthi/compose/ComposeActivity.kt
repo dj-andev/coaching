@@ -2,6 +2,7 @@ package com.andev.kranthi.compose
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -68,11 +69,11 @@ class ComposeActivity : ComponentActivity() {
             KranthiTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = Color.Red) {
-//                    Greeting("First composable")
+                    Greeting("First composable")
 //                    getClickableButton()
 //                    prepareToolbarWithBackButton()
 //                    prepareToolbarWithMenu()
-                    prepareLoginView()
+//                    prepareLoginView()
                 }
             }
         }
@@ -130,8 +131,7 @@ fun prepareLoginView(){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.White)
-            .padding(20.dp),
+            .background(color = Color.White),
 //        verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -192,7 +192,7 @@ fun prepareLoginView(){
 
 private fun validate( userName: String, password: String, context : Context){
 
-    if (userName == "user@123" && password == "password@123"){
+    if (userName == "1234" && password == "1234"){
         Toast.makeText(context, "User authenticated", Toast.LENGTH_LONG).show()
         navigateToListScreen(context = context)
     } else {
@@ -298,7 +298,7 @@ fun prepareToolbarWithMenu(){
                 }
             )
         }, content = {
-            /*Column(
+            Column(
                 modifier = Modifier
                     .padding(it)
                     .fillMaxSize()
@@ -311,9 +311,8 @@ fun prepareToolbarWithMenu(){
                     fontSize = 30.sp,
                     color = Color.White
                 )
-            }*/
-            Box(
-                Modifier
+            }
+            Box(modifier = Modifier
                     .padding(it)
                     .fillMaxSize()
                     .border(width = 4.dp, color = Color.Red, shape = RoundedCornerShape(5.dp))
@@ -355,14 +354,15 @@ private fun finishActivity(){
 
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(showBackground = true, showSystemUi = true, name = "light mode")
+@Preview(showBackground = true, showSystemUi = true, name = "dark mode", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun GreetingPreview() {
     Surface(modifier = Modifier.wrapContentSize(), color = Color.Red) {
-//        Greeting("First composable")
+        Greeting("First composable")
 //        getClickableButton()
 //          prepareToolbarWithBackButton()
 //        prepareToolbarWithMenu()
-        prepareLoginView()
+//        prepareLoginView()
     }
 }
