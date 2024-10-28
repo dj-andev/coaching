@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,7 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kranthi"
         tools:targetApi="31">
-        <!--<activity
+        <activity
+            android:name=".flow.presentation.FlowActivity"
+            android:exported="true" >
+           <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <!--
+        <activity
             android:name=".navigation.activity.NavigationActivity"
             android:exported="true">
             <intent-filter>
@@ -20,8 +32,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>-->
-        <!--<activity
+        </activity>
+        -->
+        <!--
+<activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
@@ -35,10 +49,10 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>-->
-
-        <activity
-            android:name="com.andev.kranthi.compose.ComposeActivity"
+        </activity>
+        -->
+       <!-- <activity
+            android:name=".compose.ComposeActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Kranthi.NoActionBar">
@@ -48,17 +62,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.andev.kranthi.compose.RecyclerActivity"
+            android:name=".compose.RecyclerActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Kranthi.NoActionBar">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
+        </activity>-->
     </application>
 
 </manifest>
